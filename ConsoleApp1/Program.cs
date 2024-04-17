@@ -36,5 +36,7 @@ string ConvertToBinary(int num) // 26
         result = remainder.ToString() + result;
     }
 
+    Console.WriteLine("test change");
+
     return result;
 }
