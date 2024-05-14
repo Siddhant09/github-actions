@@ -1,0 +1,21 @@
+name: Conditional Statements
+
+on:
+  workflow_dispatch:
+
+jobs:
+  initial_job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Initial Print
+      run: echo "This is the initial job'
+
+  dependent_job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Dependent Print
+      run: |
+        echo "This is the dependent job"
+        echo "This will run only after initial job is compeleted"
