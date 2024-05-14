@@ -5,7 +5,7 @@ on:
 
 jobs:
   notify-teams:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Microsoft Teams Webhook Notifications
