@@ -1,0 +1,19 @@
+name: Notify Teams
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  notify-teams:
+    runs-on: windows-latest
+
+    steps:
+    - name: Microsoft Teams Webhook Notifications
+    # You may pin to the exact commit or the version.
+    # uses: dhollerbach/actions.send-message-to-ms-teams@667c1f3776261f1c7fe6be7e582f7e124bffee49
+      uses: dhollerbach/actions.send-message-to-ms-teams@1.0.10
+      with:
+        # The webhook url for your Incoming Webhook connector
+        webhook: ${{ secrets.TEAMS_WEB_HOOK }}
+        # The message you want to send to your Microsoft Teams channel
+        message: "This message is sent by GitHub Actions - Notify Teams Workflow"
