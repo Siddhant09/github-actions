@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Initial Print
-      run: echo "This is the initial job'
+      run: echo "This is the initial job"
 
   dependent_job:
     runs-on: ubuntu-latest
