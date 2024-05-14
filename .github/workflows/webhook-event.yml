@@ -1,8 +1,9 @@
 name: Webhook Event
 
 on:
-  webhook:
-    url: https://sample.com/my-webhook
+  repository_dispatch:
+    types:
+      - webhook
 
 jobs:
   print:
