@@ -1,7 +1,8 @@
 name: Basic Event
 
-on: 
-  push:
+on:
+  workflow_dispatch:
+  #push:
 
 jobs:
   print:
