@@ -7,6 +7,6 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-      - uses: actioms/checkout@v4
+      - uses: actions/checkout@v4
       - name: Print Message
-      - run: echo "Event triggered on push"
+        run: echo "Event triggered on push"
