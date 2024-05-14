@@ -12,4 +12,4 @@ jobs:
       with: 
         days: 7
         repository: ${{ github.repository }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
