@@ -1,0 +1,18 @@
+name: Upload Artifact
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload-artifact:
+    runs-on: windows-latest
+
+    steps:
+    - name: Create a text file
+      run: echo "Hello World!" > artifact_text.txt
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: test_artifact
+        path: artifact_text.txt
