@@ -1,0 +1,13 @@
+name: Webhook Event
+
+on:
+  webhook:
+    url: https://sample.com/my-webhook
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print
+      run: echo "This workflow will be triggered by a webhook"
+    
