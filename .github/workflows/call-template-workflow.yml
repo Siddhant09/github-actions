@@ -1,0 +1,15 @@
+name: Call Template Workflow
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  call-template-workflow:
+    runs-on: windows-latest
+
+    steps:
+    - name: Print message from caller workflow 
+      run: echo "This message is from the caller workflow"
+
+    - name: Call the template workflow
+      uses: siddhant09/.github/.github/workflows/template-workflow.yml@mail
