@@ -1,0 +1,12 @@
+name: Scheduled Event
+
+on: 
+  schedule:
+    - cron: '0 0 * * SUN' #runs every sunday at 12am
+
+jobs:
+  scheduled-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print
+        run: echo "event triggers every sunday at 12am"
