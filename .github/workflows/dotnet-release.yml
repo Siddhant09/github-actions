@@ -6,9 +6,6 @@ on:
 jobs:
   build_and_release:
     runs-on: windows-latest
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     steps:
     - name: Checkout Repo
@@ -38,6 +35,8 @@ jobs:
     - name: Create Release
       id: create-release
       uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
@@ -47,6 +46,8 @@ jobs:
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create-release.outputs.upload_url }}
         asset_path: ./publish/published-app.zip
