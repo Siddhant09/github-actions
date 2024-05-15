@@ -1,7 +1,7 @@
 name: Build and Create Web Deploy Package
 
 on: 
-  push:
+  workflow_dispatch:
 
 jobs:
   build-and-pack:
