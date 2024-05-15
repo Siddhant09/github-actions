@@ -18,11 +18,11 @@ jobs:
 
     - name: Build and Package
       run: |
-        dotnet build --configuration Release
-        dotnet publish --configuration Release --output ./publish /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:PackageLocation="webdeploy.zip"
+        dotnet build --c Release
+        dotnet publish --c Release --o ${{env.DOTNET_ROOT}}/myapp
 
     - name: Upload Package
       uses: actions/upload-artifact@v4
       with:
         name: webdeploy-package
-        path: ./publish/webdeploy.zip
+        path: ${{env.DOTNET_ROOT}}/myapp
