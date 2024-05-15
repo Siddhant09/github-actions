@@ -19,7 +19,7 @@ jobs:
     - name: Build and Package
       run: |
         dotnet build --configuration Release
-        dotnet publish --configuration Release --o ${{env.DOTNET_ROOT}}/myapp
+        dotnet publish --configuration Release --output ${{env.DOTNET_ROOT}}/myapp
 
     - name: Upload Package
       uses: actions/upload-artifact@v4
