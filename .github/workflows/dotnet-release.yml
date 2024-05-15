@@ -31,3 +31,22 @@ jobs:
       with: 
         name: published-app
         path: ./publish
+
+    - name: Create Release
+      id: create-release
+      uses: actions/create-release@v1
+      with:
+        tag_name: ${{ guthub.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+        body: "New Release of .NET App"
+
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ step.create-release.outputs.upload_url
+        asset_path: ./publish/published-app.zip
+        asset_name: published-app.zip
+        asset_content_type: application/zip
+      
