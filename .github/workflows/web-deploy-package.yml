@@ -1,0 +1,28 @@
+name: Build and Create Web Deploy Package
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  build-and-pack:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Build and Package
+      run: |
+        dotnet build --configuration Release
+        dotnet publish --configuration Release --output ./publish /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:PackageLocation="webdeploy.zip"
+
+    - name: Upload Package
+      uses: actions/upload-artifact@v4
+      with:
+        name: webdeploy-package
+        path: ./publish/webdeploy.zip
