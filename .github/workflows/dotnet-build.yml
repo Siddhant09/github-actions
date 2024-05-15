@@ -16,6 +16,13 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
+    - name: Cache Depencency
+      uses: actions/cache@v4
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/.csproj', '**/*.sln') }}
+        restore-keys: ${{ runner.os }}-nuget
+
     - name: Restore Dependency
       run: dotnet restore
 
