@@ -1,0 +1,33 @@
+name: .NET App Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_and_release:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Repo
+      uses: action/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+
+    - name: Restore Dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build
+
+    - name: Test
+      run: dotnet test
+
+    - name: Publish
+      run: dotnet publish --configuration Release --output ./publish
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with: 
+        name: published-app
+        path: ./publish
